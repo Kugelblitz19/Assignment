@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>HDFC Bank</title>
+    <style>
+         table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        h1 {
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+<h1 th:text ="'Bank Branches in: ' + ${city}">Bank Branches in city</h1>
+<table>
+    <thead>
+    <tr>
+        <th>Branch ID</th>
+        <th>Branch Name</th>
+        <th>City</th>
+    </tr>
+    </thead>
+    <tbody>
+    <!-- Iterate over the list of branches and populate the table rows -->
+    <tr th:each="branch : ${branches}">
+        <td th:text="${branch.branchId}">1</td>
+        <td th:text="${branch.branchName}">Branch Name</td>
+        <td th:text="${branch.city}">City</td>
+    </tr>
+    </tbody>
+
+</table>
+</body>
+</html>
